@@ -1,28 +1,35 @@
 import { useState, useEffect } from 'react';
 
 const useInfiniteScroll = (loadMore) => {
-  const [isScrolling, setIsScrolling] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const bottom = window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight;
-      if (bottom && !isScrolling) {
-        setIsScrolling(true);
-        loadMore(); 
+      const bottom =
+        window.innerHeight + document.documentElement.scrollTop >=
+        document.documentElement.offsetHeight - 10;
+
+      if (bottom && !isFetching) {
+        setIsFetching(true);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isScrolling, loadMore]);
+  }, [isFetching]);
 
   useEffect(() => {
-    if (isScrolling) {
-      setIsScrolling(false); 
-    }
-  }, [isScrolling]);
+    if (!isFetching) return;
 
-  return isScrolling;
+    const fetchMore = async () => {
+      await loadMore(); // Call the function to load more items
+      setIsFetching(false); // Reset the fetching state
+    };
+
+    fetchMore();
+  }, [isFetching, loadMore]);
+
+  return isFetching;
 };
 
 export default useInfiniteScroll;
