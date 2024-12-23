@@ -1,33 +1,34 @@
 import React from 'react';
-import PureModal from 'react-pure-modal';
-import 'react-pure-modal/dist/react-pure-modal.min.css';
 import './CommonStyle.css';
 
-const ProductModal = ({ product, onClose }) => {
+const ProductModal = ({ isOpen, onClose, product }) => {
+  if (!isOpen) return null; // Render nothing if the modal is not open
+
   return (
-    <PureModal
-      header={product?.title}
-      isOpen={!!product}
-      closeButton={<span style={{ fontSize: '20px', fontWeight: 'bold', color:"black" }}>X</span>}
-      closeButtonPosition="header"
-      width="500px"
-      onClose={() => {
-        onClose();
-        return true;
-      }}
-    >
-      <div style={{ textAlign: 'center' }}>
-        <img
-          src={product?.image}
-          alt={product?.title}
-          style={{ width: '100%', maxHeight: '300px', objectFit: 'contain', marginBottom: '10px' }}
-        />
-        <p className='description'>{product?.description}</p>
-        <p><strong>Category:</strong> {product?.category}</p>
-        <p><strong>Price:</strong> ${product?.price}</p>
-        <p><strong>Rating:</strong> {product?.rating?.rate}⭐</p>
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <h3>{product?.title}</h3>
+          <button className="modal-close" onClick={onClose}>
+            X
+          </button>
+        </div>
+        <div className="modal-body">
+          <img
+            src={product?.image}
+            alt={product?.title}
+            style={{ width: '100%', maxHeight: '300px', objectFit: 'contain', marginBottom: '10px' }}
+          />
+          <p className="description">{product?.description}</p>
+          <p><strong>Category:</strong> {product?.category}</p>
+          <p><strong>Price:</strong> ${product?.price}</p>
+          <p><strong>Rating:</strong> {product?.rating?.rate} ⭐</p>
+        </div>
+        <div className="modal-footer">
+          <button onClick={onClose} className="modal-close-button">Close</button>
+        </div>
       </div>
-    </PureModal>
+    </div>
   );
 };
 

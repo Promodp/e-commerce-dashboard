@@ -245,27 +245,83 @@
     }
   }
   
-  .react-pure-modal {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
   }
   
-  .react-pure-modal .header {
+  .modal-container {
+    background: white;
+    width: 500px;
+    max-width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slide-down 0.3s ease-out;
+  }
+  
+  @keyframes slide-down {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .modal-close {
+    background: none;
+    border: none;
     font-size: 18px;
     font-weight: bold;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .modal-body {
+    padding: 20px;
     text-align: center;
   }
   
-  .react-pure-modal .footer {
+  .modal-footer {
+    padding: 15px;
+    border-top: 1px solid #ddd;
     text-align: right;
   }
   
-  .description {
-    background: lightgrey;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 12px;
-    text-align: start;
+  .modal-close-button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-close-button:hover {
+    background-color: #e53935;
   }
   

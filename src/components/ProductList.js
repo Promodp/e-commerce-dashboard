@@ -50,6 +50,7 @@ const ProductList = () => {
           <ProductModal
             product={selectedProduct}
             onClose={() => setSelectedProduct(null)}
+            isOpen={!!selectedProduct}
           />
         )}
       </Suspense>
