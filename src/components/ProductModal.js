@@ -2,7 +2,7 @@ import React from 'react';
 import './CommonStyle.css';
 
 const ProductModal = ({ isOpen, onClose, product }) => {
-  if (!isOpen) return null; // Render nothing if the modal is not open
+  if (!isOpen) return null; 
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -14,7 +14,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
           <img
             src={product?.image}
             alt={product?.title}
-            style={{ maxWidth: '300px', maxHeight: '300px', objectFit: 'contain', marginBottom: '10px' }}
+            style={{ maxWidth: '300px', maxHeight: '300px', minHeight:"300px", objectFit: 'contain', marginBottom: '10px' }}
           />
           <p className="description">{product?.description}</p>
           <p><strong>Category:</strong> {product?.category}</p>

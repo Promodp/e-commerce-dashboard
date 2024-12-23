@@ -2,6 +2,7 @@ import React from 'react';
 import './CommonStyle.css';
 
 const ProductItem = ({ product, onClick }) => {
+    
   return (
     <div className="product-item" onClick={() => onClick(product)}>
       <img src={product.image} alt={product.title} loading="lazy" style={{ maxWidth: '200px', maxHeight: '200px'}} />

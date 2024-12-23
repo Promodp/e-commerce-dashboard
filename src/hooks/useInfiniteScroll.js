@@ -5,17 +5,16 @@ const useInfiniteScroll = (loadMore) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const bottom =
-        window.innerHeight + document.documentElement.scrollTop >=
-        document.documentElement.offsetHeight - 10;
-
-      if (bottom && !isFetching) {
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+      // Check if the user has scrolled to the bottom
+      if (scrollHeight - scrollTop <= clientHeight + 5 && !isFetching) {
         setIsFetching(true);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [isFetching]);
 
   useEffect(() => {
@@ -25,11 +24,10 @@ const useInfiniteScroll = (loadMore) => {
       await loadMore(); // Call the function to load more items
       setIsFetching(false); // Reset the fetching state
     };
-
     fetchMore();
   }, [isFetching, loadMore]);
 
-  return isFetching;
+  return;
 };
 
 export default useInfiniteScroll;

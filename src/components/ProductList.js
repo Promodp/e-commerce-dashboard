@@ -5,46 +5,64 @@ import useFetchProducts from '../hooks/useFetchProducts';
 import useInfiniteScroll from '../hooks/useInfiniteScroll';
 import './CommonStyle.css';
 
-// Lazy load the ProductModal component
 const ProductModal = React.lazy(() => import('./ProductModal'));
 
 const ProductList = () => {
   const [page, setPage] = useState(1);
   const [filters, setFilters] = useState({});
-  const { products, loading, error } = useFetchProducts(page, filters);
+  const { products, loading, error, hasMore } = useFetchProducts(page, filters);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const loadMore = () => {
-    setPage((prevPage) => prevPage + 1);
-  };
-
+  const loadMore = () => setPage((prevPage) => prevPage + 1);
   useInfiniteScroll(loadMore);
 
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
+  const handleFilterChange = (newFilters) => {
+    setFilters(newFilters);
+    setPage(1); // Reset to the first page when filters change
   };
 
   return (
     <div className="product-list">
-      <Filters setFilters={setFilters} />
-      
-      {loading && <div className="loading-indicator">Loading...</div>}
+      <Filters setFilters={handleFilterChange} />
+
+      {/* Full-page loader when applying filters */}
+      {loading && page === 1 && (
+        <div className="full-page-loader">
+          <div className="loading-spinner"></div>
+          <p>Loading...</p>
+        </div>
+      )}
+
       {error && <div className="error">{error}</div>}
-      
+
+      {!loading && products.length === 0 && (
+          <p className="no-items-message">No items found</p>
+        )}
       <div className="products">
         {products.map((product) => (
-          <ProductItem key={product.id} product={product} onClick={handleProductClick} />
+          <ProductItem
+            key={product.id}
+            product={product}
+            onClick={() => setSelectedProduct(product)}
+          />
         ))}
       </div>
-      
-      {loading && !selectedProduct && (
+
+      {/* Infinite scroll loader */}
+      {hasMore && (
         <div className="loading-more-indicator">
           <div className="loading-spinner"></div>
           <p>Loading more products...</p>
         </div>
       )}
 
-      {/* Lazy load ProductModal with Suspense */}
+      {/* End of product list */}
+      {!hasMore && products.length > 0 && (
+        <div className="loading-indicator">
+          <p className='loading-text'>You have reached the end of the product list!</p>
+        </div>
+      )}
+
       <Suspense fallback={<div>Loading Modal...</div>}>
         {selectedProduct && (
           <ProductModal

@@ -5,6 +5,7 @@
   }
   
   /* Filters Section */
+
   .filters {
     display: flex;
     flex-wrap: wrap;
@@ -84,6 +85,7 @@
     background-color: #45a049;
   }
   
+  /* Product Items */
   .products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -127,71 +129,63 @@
   
   .product-item .rating {
     font-size: 14px;
-    color: #ff9800; /* Gold color for stars */
+    color: #ff9800; 
     font-weight: bold;
   }
+
   
-  .modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .modal-content img {
-    max-height: 400px;
-    width: auto;
-    margin-bottom: 20px;
-  }
-  
-  .modal-content h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  
-  .modal-content p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .modal-content button {
-    background-color: #f44336;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .modal-content button:hover {
-    background-color: #e53935;
-  }
-  
-  @media (max-width: 768px) {
-    .products {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  .loading-indicator {
-    text-align: center;
-    font-size: 18px;
-    margin-top: 20px;
-  }
-  
-  .loading-spinner {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
+  /* Common loader styles */
+.loading-spinner {
+    border: 4px solid #f3f3f3; 
+    border-top: 4px solid #3498db; 
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 2s linear infinite;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
   }
   
   @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Full-page loader */
+  .full-page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .full-page-loader p {
+    margin-left: 10px;
+    font-size: 1.2em;
+    color: #333;
+  }
+
+  .loading-text{
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    color: #888;
+  }
+  
+  /* No items message */
+  .no-items-message {
+    font-size: 18px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
   }
   
   .error {
@@ -209,6 +203,7 @@
     margin-top: 20px;
   }
   
+  /* Filter responsive */
   @media (min-width: 768px) {
     .filters {
       justify-content: space-between;
@@ -324,4 +319,6 @@
   .modal-close-button:hover {
     background-color: #e53935;
   }
+
+
   
