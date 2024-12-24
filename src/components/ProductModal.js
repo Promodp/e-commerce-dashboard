@@ -19,7 +19,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
           <p className="description">{product?.description}</p>
           <p><strong>Category:</strong> {product?.category}</p>
           <p><strong>Price:</strong> ${product?.price}</p>
-          <p><strong>Rating:</strong> {product?.rating?.rate} ⭐</p>
+          <p><strong>Rating:</strong> {product?.rating?.rate} </p>
         </div>
         <div className="modal-footer">
           <button onClick={onClose} className="modal-close-button">Close</button>

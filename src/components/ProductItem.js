@@ -11,7 +11,7 @@ const ProductItem = ({ product, onClick }) => {
       <p>${product.price}</p>
       {product.rating && (
         <p className="rating">
-          Rating: {product.rating.rate}⭐ ({product.rating.count} reviews)
+          Rating: {product.rating.rate} ({product.rating.count} reviews)
         </p>
       )}
     </div>

@@ -2,11 +2,11 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  /* Filters Section */
+}
 
-  .filters {
+/* Filters Section */
+
+.filters {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -14,62 +14,62 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .filter-group {
+}
+
+.filter-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
-  }
-  
-  .filter-group label {
+}
+
+.filter-group label {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;
-  }
-  
-  .filters select,
-  .filters input[type="range"] {
+}
+
+.filters select,
+.filters input[type="range"] {
     padding: 8px 12px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 150px;
-  }
-  
-  .range-input {
+}
+
+.range-input {
     position: relative;
     display: flex;
     align-items: center;
     width: 200px;
-  }
-  
-  .range-min,
-  .range-max {
+}
+
+.range-min,
+.range-max {
     font-size: 14px;
     font-weight: bold;
     position: absolute;
     color: #333;
-  }
-  
-  .range-min {
+}
+
+.range-min {
     left: -22px;
-  }
-  
-  .range-max {
+}
+
+.range-max {
     right: -22px;
-  }
-  
-  .range-selected {
+}
+
+.range-selected {
     margin-top: 10px;
     font-size: 14px;
     font-weight: bold;
     color: #4caf50;
     text-align: center;
-  }
-  
-  .filters button {
+}
+
+.filters button {
     align-self: center;
     padding: 10px 15px;
     font-size: 14px;
@@ -79,21 +79,21 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .filters button:hover {
+}
+
+.filters button:hover {
     background-color: #45a049;
-  }
-  
-  /* Product Items */
-  .products {
+}
+
+/* Product Items */
+.products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-top: 20px;
-  }
-  
-  .product-item {
+}
+
+.product-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,59 +102,60 @@
     border-radius: 8px;
     transition: box-shadow 0.3s ease;
     text-align: center;
-  }
-  
-  .product-item:hover {
+}
+
+.product-item:hover {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-  }
-  
-  .product-item img {
+}
+
+.product-item img {
     max-height: 250px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
-  }
-  
-  .product-item h3 {
+}
+
+.product-item h3 {
     font-size: 18px;
     margin: 5px 0;
-  }
-  
-  .product-item p {
+}
+
+.product-item p {
     margin: 5px 0;
     font-size: 14px;
     color: #555;
-  }
-  
-  .product-item .rating {
-    font-size: 14px;
-    color: #ff9800; 
-    font-weight: bold;
-  }
+}
 
-  
-  /* Common loader styles */
+.product-item .rating {
+    font-size: 14px;
+    color: #ff9800;
+    font-weight: bold;
+}
+
+
+/* Common loader styles */
 .loading-spinner {
-    border: 4px solid #f3f3f3; 
-    border-top: 4px solid #3498db; 
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
     border-radius: 50%;
     width: 30px;
     height: 30px;
     animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  
-  /* Full-page loader */
-  .full-page-loader {
+}
+
+/* Full-page loader */
+.full-page-loader {
     position: fixed;
     top: 0;
     left: 0;
@@ -165,82 +166,82 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
-  }
-  
-  .full-page-loader p {
+}
+
+.full-page-loader p {
     margin-left: 10px;
     font-size: 1.2em;
     color: #333;
-  }
+}
 
-  .loading-text{
+.loading-text {
     display: flex;
     justify-content: center;
     font-size: 24px;
     color: #888;
-  }
-  
-  /* No items message */
-  .no-items-message {
+}
+
+/* No items message */
+.no-items-message {
     font-size: 18px;
     margin-top: 20px;
     display: flex;
     justify-content: center;
-  }
-  
-  .error {
+}
+
+.error {
     text-align: center;
     font-size: 16px;
     color: red;
     margin-top: 20px;
-  }
-  
-  .loading-more-indicator {
+}
+
+.loading-more-indicator {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 20px;
-  }
-  
-  /* Filter responsive */
-  @media (min-width: 768px) {
+}
+
+/* Filter responsive */
+@media (min-width: 768px) {
     .filters {
-      justify-content: space-between;
+        justify-content: space-between;
     }
-  
+
     .filters select,
     .filters input {
-      width: 200px;
+        width: 200px;
     }
-  
+
     .filters button {
-      width: auto;
+        width: auto;
     }
-  }
-  
-  @media (max-width: 767px) {
+}
+
+@media (max-width: 767px) {
     .filters {
-      flex-direction: column;
-      align-items: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
     }
-  
+
     .filters select,
     .filters input {
-      width: 100%;
-      margin-bottom: 10px;
+        width: 100%;
+        margin-bottom: 10px;
     }
-  
+
     .filters button {
-      width: 100%;
+        width: 100%;
     }
-  
+
     .range-input {
-      margin-left: 24px;
+        margin-left: 24px;
     }
-  }
-  
-  .modal-overlay {
+}
+
+.modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -251,62 +252,69 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-  }
-  
-  .modal-container {
+}
+
+.modal-container {
     background: white;
     width: 500px;
     max-width: 90%;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: slide-down 0.3s ease-out;
-  }
-  
-  @keyframes slide-down {
+}
+
+@keyframes slide-down {
     from {
-      transform: translateY(-50%);
-      opacity: 0;
+        transform: translateY(-50%);
+        opacity: 0;
     }
+
     to {
-      transform: translateY(0);
-      opacity: 1;
+        transform: translateY(0);
+        opacity: 1;
     }
-  }
-  
-  .modal-header {
+}
+
+.modal-header {
     padding: 15px;
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .modal-header h3 {
+}
+
+.modal-header h3 {
     margin: 0;
     font-size: 18px;
-  }
-  
-  .modal-close {
+}
+
+.modal-close {
     background: none;
     border: none;
     font-size: 18px;
     font-weight: bold;
     color: #333;
     cursor: pointer;
-  }
-  
-  .modal-body {
+}
+
+.modal-body {
     padding: 20px;
     text-align: center;
-  }
-  
-  .modal-footer {
+}
+
+.modal-body p:nth-child(3),
+.modal-body p:nth-child(4),
+.modal-body p:nth-child(5) {
+    text-align: justify;
+}
+
+.modal-footer {
     padding: 15px;
     border-top: 1px solid #ddd;
     text-align: right;
-  }
-  
-  .modal-close-button {
+}
+
+.modal-close-button {
     background-color: #f44336;
     color: white;
     padding: 10px 20px;
@@ -314,11 +322,15 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .modal-close-button:hover {
+}
+
+.modal-close-button:hover {
     background-color: #e53935;
-  }
+}
 
-
-  
+.description {
+    background: lightsteelblue;
+    padding: 10px;
+    text-align: justify;
+    border-radius: 8px;
+}
