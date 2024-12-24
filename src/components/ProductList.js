@@ -25,8 +25,7 @@ const ProductList = () => {
     <div className="product-list">
       <Filters setFilters={handleFilterChange} />
 
-      {/* Full-page loader when applying filters */}
-      {loading && page === 1 && (
+      {loading && page === 1 && Object.keys(filters).length > 0 && (
         <div className="full-page-loader">
           <div className="loading-spinner"></div>
           <p>Loading...</p>
@@ -52,7 +51,7 @@ const ProductList = () => {
       {hasMore && (
         <div className="loading-more-indicator">
           <div className="loading-spinner"></div>
-          <p>Loading more products...</p>
+          <p>Loading Products...</p>
         </div>
       )}
 

@@ -207,7 +207,8 @@
 /* Filter responsive */
 @media (min-width: 768px) {
     .filters {
-        justify-content: space-between;
+        justify-content: space-around;
+        padding: 32px 32px 20px 32px;
     }
 
     .filters select,
@@ -333,4 +334,29 @@
     padding: 10px;
     text-align: justify;
     border-radius: 8px;
+}
+
+/* Product list responsiveness */
+@media (max-width: 767px) {
+    .products {
+        grid-template-columns: repeat(1, 1fr); 
+        gap: 15px; 
+    }
+
+    .product-item img {
+        max-height: 200px; 
+    }
+
+    .product-item {
+        padding: 15px; 
+        border-radius: 5px; 
+    }
+
+    .product-item h3 {
+        font-size: 16px; 
+    }
+
+    .product-item p {
+        font-size: 12px;
+    }
 }
